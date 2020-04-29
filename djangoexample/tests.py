@@ -1,9 +1,7 @@
 import unittest
 
 
-class HelloTestCase(unittest.TestCase):
-    pass
+class HelloWorldTestCase(unittest.TestCase):
 
-
-def test_hello():
-    assert True != False
+    def test_hello_world(self):
+        assert True
