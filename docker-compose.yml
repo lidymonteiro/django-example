@@ -11,6 +11,8 @@
         - POSTGRES_PASSWORD=postgres
       volumes:
         - pgdata:/var/lib/postgresql/data
+      ports:
+        - 5433:5432
     web:
       build: .
       command: python manage.py runserver 0.0.0.0:8000
