@@ -23,4 +23,8 @@
       depends_on:
         - db
   volumes:
+<<<<<<<<< Temporary merge branch 1
+    - pgdata
+=========
     pgdata:
+>>>>>>>>> Temporary merge branch 2
