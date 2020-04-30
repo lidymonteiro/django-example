@@ -22,5 +22,5 @@
         - "8000:8000"
       depends_on:
         - db
-  volumes:
-    pgdata:
+volumes:
+  pgdata:
