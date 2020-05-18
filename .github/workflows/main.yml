@@ -49,4 +49,4 @@ jobs:
         run: python manage.py migrate
       - name: Run Tests
         run: |
-          pytest
+          python manage.py test
