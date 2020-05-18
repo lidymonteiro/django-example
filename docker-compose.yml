@@ -6,7 +6,7 @@ services:
     image: postgres
     restart: always
     environment:
-      - POSTGRES_DB=djangoexample
+      - POSTGRES_DB=web
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     volumes:
