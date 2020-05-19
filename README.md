@@ -23,3 +23,9 @@ Para iniciar a aplicação em em 0.0.0.0:8000, utilize:
 ```
 docker-compose up
 ```
+
+Se precisar reinstalar as dependências do requirements, faça
+
+```
+docker-compose up --build
+```
