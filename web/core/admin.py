@@ -14,8 +14,12 @@ def spider(modeladmin, request, queryset):
     for extraction in queryset:
         csv_file_path = extraction.lawsuits.path
         dataset = read_data_csv(csv_file_path)
+        aux = []
         for data in dataset:
-            DataExtraction.objects.create(dataset=data)
+            obj = DataExtraction(dataset=data)
+            aux.append(obj)
+
+        DataExtraction.objects.bulk_create(aux)
 
 
 spider.short_description = "Apply Spider"
