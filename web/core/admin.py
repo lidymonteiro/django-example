@@ -1,23 +1,21 @@
+import csv
 from django.contrib import admin
 from .models import Extraction, DataExtraction
-import csv
 
 
 def read_data_csv(path):
-    with open(path, newline='') as csvfile:
-        reader = csv.DictReader(csvfile)
-        data = []
-        for row in reader:
-            data.append(dict(row))
-        return data
+    with open(path) as csv_file:
+        reader = csv.DictReader(csv_file, delimiter=',')
+        csv_data = [line for line in reader]
+    return csv_data
 
 
-# action que converte para JSON. Qual a melhor maneira de salvar no campo JSONField de DataExtraction?
 def spider(modeladmin, request, queryset):
     for extraction in queryset:
         csv_file_path = extraction.lawsuits.path
         dataset = read_data_csv(csv_file_path)
-    print(dataset)
+        for data in dataset:
+            DataExtraction.objects.create(dataset=data)
 
 
 spider.short_description = "Apply Spider"
