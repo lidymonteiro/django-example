@@ -7,7 +7,7 @@ class DataExtraction(models.Model):
     dataset = JSONField(blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return str(self.pk)
 
 
 class Extraction(models.Model):
