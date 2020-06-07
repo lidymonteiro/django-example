@@ -13,14 +13,33 @@ services:
       - pgdata:/var/lib/postgresql/data
     ports:
       - 5433:5432
+  redis:
+    image: "redis:alpine"
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command: bash -c "python /code/manage.py migrate --noinput && python /code/manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code
     ports:
       - "8000:8000"
     depends_on:
       - db
+      - redis
+  celery:
+    build: .
+    command: celery -A web worker -l info
+    volumes:
+      - .:/code
+    depends_on:
+      - db
+      - redis
+  celery-beat:
+    build: .
+    command: celery -A web beat -l info
+    volumes:
+      - .:/code
+    depends_on:
+      - db
+      - redis
 volumes:
   pgdata:
