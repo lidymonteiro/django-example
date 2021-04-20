@@ -8,7 +8,7 @@ pyflakes==2.2.0
 pytest==5.4.1
 pluggy==0.13.1
 attrs==19.3.0
-py==1.8.1
+py==1.10.0
 wcwidth==0.1.9
 packaging==20.3
 more-itertools==8.2.0
