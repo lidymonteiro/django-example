@@ -1,6 +1,6 @@
 asgiref==3.2.7
 django-extensions==2.2.9
-Django==2.2.12
+Django==2.2.22
 psycopg2-binary
 pytz==2020.1
 selenium==3.141.0
